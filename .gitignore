@@ -1,0 +1,11 @@
+dvr
+*.o
+*.lgd
+*.log
+*.LOG
+*.zip
+test/
+.gradle/
+build/
+app/build/
+local.properties
