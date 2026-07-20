@@ -1,6 +1,7 @@
 package com.jemmiechen.dvrconverter;
 
 import android.app.Activity;
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
@@ -23,6 +24,7 @@ import java.util.Locale;
 public class MainActivity extends Activity {
     private static final int REQUEST_OPEN_LOG = 100;
     private static final int REQUEST_CREATE_LGD = 101;
+    private static final String DONAT_MANUAL_URL = "https://jemmiechen.github.io/DONAT-SW-manual.pdf";
 
     private static final byte[] LGD_HEADER = new byte[] {
             0x03, 0x0E, 0x00, (byte) 0xFF, 0x01, 0x7F, (byte) 0xA0, 0x7A,
@@ -98,6 +100,11 @@ public class MainActivity extends Activity {
         statusView.setPadding(0, dp(18), 0, 0);
         root.addView(statusView, matchWrap());
 
+        Button manualButton = new Button(this);
+        manualButton.setText("DONAT-manual");
+        manualButton.setOnClickListener(v -> openDonatManual());
+        root.addView(manualButton, matchWrap());
+
         TextView copyright = new TextView(this);
         copyright.setText("This program was written by Jimmy Chen.\nAll rights reserved.\nhttp://khcity.weebly.com");
         copyright.setTextSize(14);
@@ -169,6 +176,15 @@ public class MainActivity extends Activity {
         intent.setType("application/octet-stream");
         intent.putExtra(Intent.EXTRA_TITLE, outputNameFor(inputName));
         startActivityForResult(intent, REQUEST_CREATE_LGD);
+    }
+
+    private void openDonatManual() {
+        try {
+            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(DONAT_MANUAL_URL));
+            startActivity(intent);
+        } catch (ActivityNotFoundException error) {
+            Toast.makeText(this, "找不到可開啟網路文件的應用程式", Toast.LENGTH_SHORT).show();
+        }
     }
 
     @Override
