@@ -4,6 +4,7 @@ dvr
 *.log
 *.LOG
 *.zip
+!atp-entw/*.zip
 test/
 .gradle/
 build/

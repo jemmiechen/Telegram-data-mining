@@ -61,3 +61,16 @@ The APK uses Android's file picker:
 1. Select a `.log` file, such as `S1155.log`.
 2. Tap convert and save.
 3. The suggested output name is `1155.lgd`.
+
+---
+
+## Train ATP Telegram Record Analysis (atp-entw)
+
+Siemens LZB700M / ATP-entw telegram and event diagnostics tools and archives are located in the [atp-entw](atp-entw/atp-entw-readme.md) directory:
+
+- **Portable Desktop Package**: [`atp-entw/atp-entw-Win10-MacOS.zip`](atp-entw/atp-entw-Win10-MacOS.zip) (Windows 10/11 & macOS native standalone binaries)
+- **Android APK**: [`atp-entw/atp-entw-analysis.apk`](atp-entw/atp-entw-analysis.apk) (Native Android diagnostic application)
+- **Sample Dataset**: [`atp-entw/0401-1.zip`](atp-entw/0401-1.zip) (Raw Siemens DAT sample dumps)
+- **Historical EMU Data**: [`atp-entw/emu-atp.zip`](atp-entw/emu-atp.zip) (EMU ATP archives)
+- **Detailed Documentation**: See [atp-entw/atp-entw-readme.md](atp-entw/atp-entw-readme.md)
+
